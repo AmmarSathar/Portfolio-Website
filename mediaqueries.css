@@ -130,4 +130,13 @@
         text-rendering: optimizeLegibility;
     }
     
+    
+    @font-face {
+        font-family: 'TANBUSTER';
+        src: url('../fonts/TAN-BUSTER.otf') format('woff2'),
+             url('../fonts/TAN-BUSTER.woff2') format('opentype');
+        font-style: normal;
+        font-weight: bold;
+        text-rendering: optimizeLegibility;
+    }
 

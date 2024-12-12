@@ -111,6 +111,17 @@
     }
   }
 
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes fadeInOut {
     0%, 100% { opacity: 0; } /* Completely transparent at the start and end */
     50% { opacity: 1; }      /* Fully visible in the middle */
@@ -138,5 +149,10 @@
         font-style: normal;
         font-weight: bold;
         text-rendering: optimizeLegibility;
+    }
+
+    @font-face {
+      font-family: 'Marvin Visions Variable';
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsTrial-Variable.ttf");
     }
 

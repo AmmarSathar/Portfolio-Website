@@ -12,8 +12,8 @@
 body {
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: transparent;
+    height: 100%;
 }
 
 
@@ -29,7 +29,7 @@ body {
     width: 97%; /* Slightly less than 100% for a margin effect */
     margin: 15px auto; /* Centers the navbar with some margin on top */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    position: absolute; /* Keeps it inside the hero section */
+    position: fixed; /* Keeps it inside the hero section */
     left: 50%;
     transform: translateX(-50%); /* Centers the navbar */
     z-index: 1; /* Ensures it stays on top of other elements */
@@ -91,22 +91,24 @@ h1, h2, h3 {
 
 
 header {
-    height: 100vh;
-    display: flex;
-    background-color: #fdf6ee;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232c4b72' fill-opacity='0.74' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    z-index: -2;
+  height: 100vh;
+  display: flex;
+  background-color: #fdf6ee;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232c4b72' fill-opacity='0.74' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  justify-content: center;
+  position: relative; /* Ensure the hero image is positioned relative to the header */
+  overflow: hidden;
+  z-index: -2;
 }
 
 .hero-photo {
-    padding-top: 5%;
-    width: 700px;
-    height: auto;
-    
-    
+  position: fixed; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 45vw; /* Adjust this as desired (e.g., 70vw, 50vw) */
+  /* max-width: 700px; Ensure the image doesn't grow too large on large screens */
+  height: auto;
 }
 
 .carousel {
@@ -115,7 +117,7 @@ header {
     overflow: hidden;
 
     white-space: nowrap;
-    position: absolute;
+    position: fixed;
     z-index: -1; /* Moves the carousel behind the image */
   }
   
@@ -133,7 +135,7 @@ header {
 }
 
   .scroll-down {
-    position: absolute;
+    position: fixed;
     bottom: 20px; /* Distance from the bottom */
     left: 20px; /* Distance from the left */
     display: flex;
@@ -169,23 +171,57 @@ header {
 
 /* About Me Section */
 .about-section {
-    padding: 50px 20px;
-    background-color: white;
-    text-align: center;
+  display: flex;         /* Enable flex layout */
+  flex-wrap: wrap;       /* Allow wrapping on smaller screens */
+  height: 80vh;       /* 80% of viewport height */
+  width: 100%;        /* Make it span the full width of the viewport */
+  margin: 0;          /* Remove auto margins since we want full width */
+  background-color: transparent;
+  background: black;
+  
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  
+  overflow: hidden;    /* Ensures that content doesn't overflow the rounded corners */
+  padding: 6.5rem;
+  
 }
 
 .about-section h2 {
     margin-bottom: 20px;
-    font-size: 2.5em;
-    color: #444;
+    font-size: 4.0rem;
+    color: whitesmoke;
+    text-align: left;
+    flex: 0 0 auto;        /* The left column takes only as much space as needed */
+    margin-right: 4rem;    /* Space between the columns */
+    color: yellow;
 }
 
 .about-section p {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 1.2em;
-    color: #666;
+    max-width: 900px;
+    font-size: 2.75rem;
+    color: whitesmoke;
+    text-align: left;
+    flex: 1;
+    margin-left: 4rem;
+    color: yellow;
 }
+
+#quote {
+  --weight: 10;
+  font-family: 'Marvin Visions Variable';
+  font-weight: 170;
+  background-size: contain;
+  line-height: 1.0;
+  
+  
+}
+
+#quote > * {
+  
+  font-variation-settings: 'wght' var(--weight);
+}
+
 
 /* Projects Section */
 .projects-section {
